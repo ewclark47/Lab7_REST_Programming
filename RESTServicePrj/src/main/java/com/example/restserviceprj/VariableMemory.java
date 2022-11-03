@@ -5,10 +5,8 @@ package com.example.restserviceprj;
 
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+
+import java.util.*;
 
 // handle requests to /variablememory
 
@@ -75,5 +73,18 @@ public class VariableMemory {
         return Response.status(200).entity("DELETE completed on server").build();
 
     }
+
+    @Path("/list/variables")
+    @GET
+    @Produces("text/plain")
+    public Response getListVariables(){
+        ArrayList varList = new ArrayList<>();
+        System.out.println("Getting list of variables: ");
+        System.out.println(memory.toString());
+        Set keys = memory.keySet();
+        varList.addAll( keys );
+        return Response.status(200).entity( varList  ).build();
+    }
+
 
 }
