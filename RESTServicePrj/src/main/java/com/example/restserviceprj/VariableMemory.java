@@ -83,7 +83,7 @@ public class VariableMemory {
         System.out.println(memory.toString());
         Set keys = memory.keySet();
         varList.addAll( keys );
-        return Response.status(200).entity( varList  ).build();
+        return Response.status(200).entity( varList.toString()  ).build();
     }
 
 
